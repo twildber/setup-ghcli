@@ -11,4 +11,4 @@ outputs:
     description: "The installed version"
 runs:
   using: "node18"
-  main: "lib/setup-ghcli.js"
+  main: "lib/index.js"
