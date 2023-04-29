@@ -77,9 +77,20 @@ export async function fetchLatestTag(): Promise<string> {
   );
 }
 
+export async function getValidTag(version: string) {
+  let versionSpec = version;
+
+  if (!version || version === 'latest') {
+    versionSpec = await fetchLatestTag();
+  }
+  
+  return versionSpec[0] === 'v' ? versionSpec.slice(1) : versionSpec;
+}
+
 export async function setup() {
   const version = core.getInput("version");
-  //TODO use of latest
-  await downloadCli(version, os.arch());
+  const versionSpec = await getValidTag(version);
+
+  await downloadCli(versionSpec, os.arch());
   core.setOutput("gh_version", version);
 }

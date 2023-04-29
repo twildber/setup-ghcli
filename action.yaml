@@ -3,7 +3,7 @@ description: "Install a specific version of GitHub cli and add it to the PATH"
 author: "twildber"
 inputs:
   version:
-    description: "The version to use. Example: v2.28.0"
+    description: "The version to use. Example: 2.28.0"
     default: "latest"
     required: false
 outputs:
