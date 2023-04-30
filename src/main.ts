@@ -49,7 +49,11 @@ async function downloadCli(version: string, arch: string): Promise<void> {
       if (url.endsWith(".zip")) {
         unzippedGhCliPath = await tc.extractZip(ghCliPath);
       } else {
-        unzippedGhCliPath = await tc.extractTar(url);
+        unzippedGhCliPath = await tc.extractTar(ghCliPath, undefined, [
+          "xz",
+          "--strip",
+          "1",
+        ]);
       }
 
       cachedGhCli = await tc.cacheDir(unzippedGhCliPath, "gh", version, arch);
@@ -80,11 +84,11 @@ export async function fetchLatestTag(): Promise<string> {
 export async function getValidTag(version: string) {
   let versionSpec = version;
 
-  if (!version || version === 'latest') {
+  if (!version || version === "latest") {
     versionSpec = await fetchLatestTag();
   }
-  
-  return versionSpec[0] === 'v' ? versionSpec.slice(1) : versionSpec;
+
+  return versionSpec[0] === "v" ? versionSpec.slice(1) : versionSpec;
 }
 
 export async function setup() {

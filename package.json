@@ -2,9 +2,9 @@
   "name": "setup-ghcli",
   "version": "1.0.0",
   "description": "setup gh-cli action",
-  "main": "lib/setup-ghcli.js",
+  "main": "lib/index.js",
   "scripts": {
-    "build": "ncc build src/setup-ghcli.ts -o lib",
+    "build": "ncc build src/setup-ghcli.ts -o lib --license LICENSE",
     "test": "jest",
     "format": "prettier --write ."
   },

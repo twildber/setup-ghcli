@@ -1,0 +1,22 @@
+name: release
+
+on: 
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - "*.md"
+
+permissions:
+  contents: write
+  pull-requests: read
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ github.token }}
+    steps:
+      - uses: rymndhng/release-on-push-action@v0.28.0
+        with:
+          bump_version_scheme: minor
