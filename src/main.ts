@@ -3,7 +3,7 @@ import * as core from "@actions/core";
 import * as tc from "@actions/tool-cache";
 import * as httpm from "@actions/http-client";
 
-function downloadUrl(version: string, arch: string): string {
+export function downloadUrl(version: string, arch: string): string {
   const osType = os.type();
 
   const Linux64 = osType === "Linux" && arch === "x64";
@@ -36,7 +36,7 @@ function downloadUrl(version: string, arch: string): string {
   }
 }
 
-async function downloadCli(version: string, arch: string): Promise<void> {
+export async function downloadCli(version: string, arch: string): Promise<void> {
   let cachedGhCli = tc.find("gh", version, arch);
 
   if (!cachedGhCli) {
@@ -81,7 +81,7 @@ export async function fetchLatestTag(): Promise<string> {
   );
 }
 
-export async function getValidTag(version: string) {
+export async function getValidTag(version: string): Promise<string> {
   let versionSpec = version;
 
   if (!version || version === "latest") {
