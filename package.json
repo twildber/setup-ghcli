@@ -5,7 +5,7 @@
   "main": "lib/index.js",
   "scripts": {
     "build": "ncc build src/setup-ghcli.ts -o lib --license LICENSE",
-    "test": "jest",
+    "test": "jest --coverage",
     "format": "prettier --write ."
   },
   "repository": {
