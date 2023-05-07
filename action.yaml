@@ -1,4 +1,4 @@
-name: "Setup gh cli"
+name: "setup-ghcli"
 description: "Install a specific version of GitHub cli and add it to the PATH"
 author: "twildber"
 inputs:
