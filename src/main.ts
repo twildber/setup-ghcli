@@ -36,7 +36,10 @@ export function downloadUrl(version: string, arch: string): string {
   }
 }
 
-export async function downloadCli(version: string, arch: string): Promise<void> {
+export async function downloadCli(
+  version: string,
+  arch: string
+): Promise<void> {
   let cachedGhCli = tc.find("gh", version, arch);
 
   if (!cachedGhCli) {
