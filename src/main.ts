@@ -62,6 +62,7 @@ export async function downloadCli(version: string, arch: string): Promise<void> 
     }
   }
 
+  core.debug(`Adding gh cli ${version} to path`);
   core.addPath(cachedGhCli + "/bin");
 }
 

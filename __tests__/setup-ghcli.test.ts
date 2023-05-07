@@ -1,4 +1,5 @@
 import * as tc from "@actions/tool-cache";
+import * as core from "@actions/core";
 import os from "os";
 import { fetchLatestTag, getValidTag, downloadUrl, downloadCli } from "../src/main";
 
@@ -72,9 +73,10 @@ describe("setup-ghcli.ts", () => {
 
   test("downloadCli() - tool found in cache", async () => {
     const toolPath = 'toolcache/gh/2.28.0/x64';
+    const debugLogSpy =  jest.spyOn(core, "debug");
     jest.spyOn(tc, "find").mockImplementation(() => toolPath);
 
     await downloadCli('2.28.0', 'x64');
-    expect(`${toolPath}/bin`).toBe(`${toolPath}/bin`);
+    expect(debugLogSpy).toBeCalledWith('Adding gh cli 2.28.0 to path');
   });
 });
