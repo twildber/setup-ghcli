@@ -32,7 +32,7 @@ jobs:
 
       - name: Test installing gh cli
         id: install
-        run: node .
+        uses: ./
         with:
           version: 2.28.0
 
