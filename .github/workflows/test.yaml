@@ -50,8 +50,7 @@ jobs:
           INSTALL_OUTPUT: ${{ steps.install.outputs.gh_version }}
         run: |
           echo "Installed gh version: $INSTALL_OUTPUT"
-          ls $RUNNER_TOOL_CACHE/gh/2.28.0/x64
-          ls $RUNNER_TOOL_CACHE/gh/2.28.0/x64.complete
+          ls -l $RUNNER_TOOL_CACHE/gh/2.28.0/x64/gh_2.28.0_macOS_amd64
             
       - name: Test gh command works on windows
         if: matrix.os == 'windows-latest'
