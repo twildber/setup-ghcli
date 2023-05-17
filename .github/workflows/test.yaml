@@ -37,23 +37,23 @@ jobs:
           version: 2.28.0
       
       - name: Test gh command works on ubuntu
-        if: ${{ matrix.os }} == ubuntu-latest
+        if: matrix.os == 'ubuntu-latest'
         env:
           INSTALL_OUTPUT: ${{ steps.install.outputs.gh_version }}
         run: |
           echo "Installed gh version: $INSTALL_OUTPUT"
           $RUNNER_TOOL_CACHE/gh/2.28.0/x64/bin/gh --version
 
-      - name: Test gh command works
-        if: ${{ matrix.os }} == macos-latest
+      - name: Test gh command works on macos
+        if: matrix.os  == 'macos-latest'
         env:
           INSTALL_OUTPUT: ${{ steps.install.outputs.gh_version }}
         run: |
           echo "Installed gh version: $INSTALL_OUTPUT"
           ls $RUNNER_TOOL_CACHE/gh/2.28.0
             
-      - name: Test gh command works
-        if: ${{ matrix.os }} == windows-latest
+      - name: Test gh command works on windows
+        if: matrix.os == 'windows-latest'
         env:
           INSTALL_OUTPUT: ${{ steps.install.outputs.gh_version }}
         run: |
