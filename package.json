@@ -20,7 +20,7 @@
   "homepage": "https://github.com/twildber/setup-ghcli#readme",
   "dependencies": {
     "@actions/core": "^1.10.0",
-    "@actions/http-client": "^2.1.0",
+    "@actions/http-client": "^2.1.1",
     "@actions/tool-cache": "^2.0.1"
   },
   "devDependencies": {
